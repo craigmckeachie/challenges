@@ -29,10 +29,23 @@ function ItemsList(props) {
                 onCancel={handleCancel}
               />
             ) : (
-              <p>
-                <span>{item.name}</span>
-                <button onClick={() => handleEditClick(item)}>Edit</button>
-                <button onClick={() => onRemove(item)}>Remove</button>
+              <p
+                style={{
+                  width: '400px',
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                }}
+              >
+                <span style={{ flex: 3 }}>{item.name}</span>
+                <button
+                  style={{ flex: 1 }}
+                  onClick={() => handleEditClick(item)}
+                >
+                  Edit
+                </button>
+                <button style={{ flex: 1 }} onClick={() => onRemove(item)}>
+                  Remove
+                </button>
               </p>
             )}
           </li>
