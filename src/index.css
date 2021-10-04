@@ -1,0 +1,29 @@
+body,
+button,
+input,
+textarea,
+li {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+li {
+  list-style: none;
+  border-bottom: 1px solid #ddd;
+}
+
+span {
+  margin: 15px;
+}
+
+button {
+  margin: 10px;
+  padding: 5px 15px 5px 15px;
+  background: transparent;
+}
+
+form {
+  margin: 15px;
+}
