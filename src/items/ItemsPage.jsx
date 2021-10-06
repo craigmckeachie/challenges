@@ -2,24 +2,17 @@ import { useState, useEffect } from 'react';
 import ItemForm from './ItemForm';
 import ItemsList from './ItemsList';
 import { itemAPI } from './itemAPI';
+import { loadItems } from './state/State';
+import { useSelector, useDispatch } from 'react-redux';
 
 function ItemsPage() {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(undefined);
+  const loading = useSelector((state) => state.itemState.loading);
+  const error = useSelector((state) => state.itemState.error);
+  const items = useSelector((state) => state.itemState.items);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoading(true);
-    itemAPI
-      .getAll(1)
-      .then((data) => {
-        setItems(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
+    dispatch(loadItems());
   }, []);
 
   const addItem = (item) => {
